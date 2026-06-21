@@ -96,7 +96,8 @@ function renderCheckoutStageView() {
   let aggregateCartSum = 0;
 
   shoppingCartItems.forEach((item, index) => {
-    // Check time elapsed since product configuration to scale dynamic price values
+    // CRITICAL REQUIREMENT LOGIC: Check time elapsed since product was configured.
+    // If elapsed time passes a specific timeframe threshold (simulated here at 10 seconds for real-time testing), increase base price by 15%.
     const secondsElapsed = Math.floor((Date.now() - item.timestampAdded) / 1000);
     let finalAdjustedItemPrice = item.basePrice;
     let priceHikeAppliedIndicator = "";
@@ -146,56 +147,39 @@ function executePaymentGatewaySim() {
   }, 2000);
 }
 
-// DOM Event Bindings and Interactive Action Triggers
-document.addEventListener('DOMContentLoaded', () => {
-  
-  // Global Cart Nav Trigger Override Entry mapping hooks logic shortcuts
-  const cartBtn = document.getElementById('cartBtn');
-  if (cartBtn) {
-    cartBtn.addEventListener('click', () => {
-      if (shoppingCartItems.length === 0) {
-        alert("Your 507 Brand custom styling cart is empty. Choose an item below to measure first.");
-        return;
-      }
-      document.getElementById('studioModal').classList.remove('hidden');
-      renderCheckoutStageView();
-    });
+// Global Cart Nav Trigger Override Entry mapping hooks logic shortcuts
+document.getElementById('cartBtn').addEventListener('click', () => {
+  if (shoppingCartItems.length === 0) {
+    alert("Your 507 Brand custom styling cart is empty. Choose an item below to measure first.");
+    return;
   }
+  document.getElementById('studioModal').classList.remove('hidden');
+  renderCheckoutStageView();
+});
 
-  // Bind step-by-step studio measurement focus events
-  const inputChest = document.getElementById('m_chest');
-  const inputShoulder = document.getElementById('m_shoulder');
-  const inputWaist = document.getElementById('m_waist');
-  const inputHeight = document.getElementById('m_height');
-
-  if (inputChest) inputChest.addEventListener('focus', () => syncVideoGuide('chest'));
-  if (inputShoulder) inputShoulder.addEventListener('focus', () => syncVideoGuide('shoulder'));
-  if (inputWaist) inputWaist.addEventListener('focus', () => syncVideoGuide('waist'));
-  if (inputHeight) inputHeight.addEventListener('focus', () => syncVideoGuide('height'));
-
-
-  // =================================================================
+// =================================================================
   // RESPONSIVE HAMBURGER NAVIGATION SCRIPT TOGGLE CONTROLLER
   // =================================================================
   const menuToggleBtn = document.getElementById('menuToggleBtn');
-  const navLinksMenu = document.getElementById('navLinksMenu');
+  const mobileDropdownMenu = document.getElementById('mobileDropdownMenu');
 
-  if (menuToggleBtn && navLinksMenu) {
-    // Open and close menu on clicking the toggle button
-    menuToggleBtn.addEventListener('click', () => {
-      navLinksMenu.classList.toggle('hidden');
+  if (menuToggleBtn && mobileDropdownMenu) {
+    // Open and close menu dropdown drawer layout smoothly
+    menuToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileDropdownMenu.classList.toggle('hidden');
     });
 
-    // Auto-close dropdown panel layout instantly when click links are routed
-    const interiorLinks = navLinksMenu.querySelectorAll('a');
-    interiorLinks.forEach(link => {
+    // Auto-close menu when any navigation anchor link inside gets clicked
+    const links = mobileDropdownMenu.querySelectorAll('a');
+    links.forEach(link => {
       link.addEventListener('click', () => {
-        if (window.innerWidth < 768) {
-          navLinksMenu.classList.add('hidden');
-        }
+        mobileDropdownMenu.classList.add('hidden');
       });
     });
-  }
-  // =================================================================
 
-});
+    // Close menu if user clicks anywhere else on the screen background
+    document.addEventListener('click', () => {
+      mobileDropdownMenu.classList.add('hidden');
+    });
+  }

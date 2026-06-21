@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>507 BRAND | Little Hearts, Big Styles</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="fashion.css">
+</head>
+<body class="bg-neutral-950 text-white font-sans antialiased">
+
+  <nav class="border-b border-neutral-900 bg-neutral-950/90 backdrop-blur-md sticky top-0 z-50 px-6 py-4 flex justify-between items-center">
+    <div class="flex flex-col">
+      <span class="text-2xl font-black tracking-widest text-white">507 BRAND</span>
+      <span class="text-[10px] text-emerald-400 font-mono tracking-wider">LITTLE HEARTS, BIG STYLES</span>
+    </div>
+    <div class="hidden md:flex space-x-8 text-xs uppercase tracking-widest font-semibold">
+      <a href="#hero-section" class="hover:text-emerald-400 transition">Home</a>
+      <a href="#collection-section" class="hover:text-emerald-400 transition">Shop Outfits</a>
+      <a href="#about-section" class="hover:text-emerald-400 transition">Our Story</a>
+      <a href="#contact-section" class="hover:text-emerald-400 transition">Contact</a>
+    </div>
+    <button id="cartBtn" class="relative bg-neutral-900 border border-neutral-800 p-2.5 rounded-xl hover:border-emerald-500 transition">
+      🛒 <span id="cartCount" class="ml-1 text-xs text-emerald-400 font-bold">0</span>
+    </button>
+  </nav>
+
+  <section id="hero-section" class="relative h-[85vh] flex items-center justify-center overflow-hidden border-b border-neutral-900">
+    <div class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-luminosity" style="background-image: url('https://images.unsplash.com/photo-1519457431-44ccd64a579b?auto=format&fit=crop&w=1600&q=80');"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/20 to-neutral-950"></div>
+    <div class="relative z-10 text-center space-y-4 max-w-2xl px-4">
+      <span class="text-xs uppercase bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-4 py-1.5 rounded-full font-bold tracking-widest">Premium Kids Bespoke (Ages 0-12)</span>
+      <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-none">HIGH FASHION FOR <br><span class="text-emerald-400">MINI ICONS</span></h1>
+      <p class="text-neutral-400 text-sm md:text-md max-w-md mx-auto">Luxury tailor-made structural silhouettes engineered specifically for your little ones.</p>
+      <div class="pt-4">
+        <a href="#collection-section" class="bg-white text-black font-bold uppercase tracking-wider text-xs px-8 py-4 rounded-xl hover:bg-emerald-400 hover:text-black transition duration-300">Explore Outfits</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="collection-section" class="max-w-7xl mx-auto px-6 py-20 space-y-12">
+    <div class="text-center space-y-2">
+      <h2 class="text-3xl font-black tracking-tight">THE SIGNATURE ESSENTIALS</h2>
+      <p class="text-xs tracking-widest text-neutral-500 uppercase">Select an style below to customize individual dimensions</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-neutral-900/40 border border-neutral-900 rounded-2xl overflow-hidden group hover:border-neutral-800 transition duration-300">
+        <div class="h-80 overflow-hidden bg-neutral-950 relative">
+          <img src="https://images.unsplash.com/photo-1621452773781-0f9927ef1e8c?auto=format&fit=crop&w=600&q=80" alt="Royal Velvet Agbada" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          <span class="absolute top-4 left-4 bg-black/70 border border-neutral-800 text-[10px] text-neutral-400 px-2 py-1 rounded font-bold uppercase">Ages 2-12</span>
+        </div>
+        <div class="p-6 flex justify-between items-center">
+          <div>
+            <h3 class="font-bold text-lg text-white">Royal Velvet Agbada Set</h3>
+            <p class="text-emerald-400 font-mono font-bold text-sm mt-1">₦45,000</p>
+          </div>
+          <button onclick="launchMeasuringStudio('Royal Velvet Agbada Set', 45000)" class="bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs uppercase px-4 py-3 rounded-xl transition">Tailor Fit</button>
+        </div>
+      </div>
+      <div class="bg-neutral-900/40 border border-neutral-900 rounded-2xl overflow-hidden group hover:border-neutral-800 transition duration-300">
+        <div class="h-80 overflow-hidden bg-neutral-950 relative">
+          <img src="https://images.unsplash.com/photo-1515488042361-404e9250afef?auto=format&fit=crop&w=600&q=80" alt="Mini Ballgown" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          <span class="absolute top-4 left-4 bg-black/70 border border-neutral-800 text-[10px] text-neutral-400 px-2 py-1 rounded font-bold uppercase">Ages 0-6</span>
+        </div>
+        <div class="p-6 flex justify-between items-center">
+          <div>
+            <h3 class="font-bold text-lg text-white">Blossom Tulle Ballgown</h3>
+            <p class="text-emerald-400 font-mono font-bold text-sm mt-1">₦60,000</p>
+          </div>
+          <button onclick="launchMeasuringStudio('Blossom Tulle Ballgown', 60000)" class="bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs uppercase px-4 py-3 rounded-xl transition">Tailor Fit</button>
+        </div>
+      </div>
+      <div class="bg-neutral-900/40 border border-neutral-900 rounded-2xl overflow-hidden group hover:border-neutral-800 transition duration-300">
+        <div class="h-80 overflow-hidden bg-neutral-950 relative">
+          <img src="https://images.unsplash.com/photo-1607990283143-e81e7a2c93ab?auto=format&fit=crop&w=600&q=80" alt="Brocade Kaftan" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          <span class="absolute top-4 left-4 bg-black/70 border border-neutral-800 text-[10px] text-neutral-400 px-2 py-1 rounded font-bold uppercase">Ages 1-12</span>
+        </div>
+        <div class="p-6 flex justify-between items-center">
+          <div>
+            <h3 class="font-bold text-lg text-white">Damask Luxury Kaftan</h3>
+            <p class="text-emerald-400 font-mono font-bold text-sm mt-1">₦55,000</p>
+          </div>
+          <button onclick="launchMeasuringStudio('Damask Luxury Kaftan', 55000)" class="bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs uppercase px-4 py-3 rounded-xl transition">Tailor Fit</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="studioModal" class="fixed inset-0 bg-black/95 z-50 overflow-y-auto hidden animate-fade-in p-4 md:p-8">
+    <div class="max-w-7xl mx-auto flex justify-end mb-4">
+      <button onclick="closeStudioModal()" class="text-neutral-400 hover:text-white text-xs font-mono border border-neutral-800 px-4 py-2 rounded-xl bg-neutral-900">✕ CLOSE STUDIO</button>
+    </div>
+    
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div class="lg:sticky lg:top-8 h-[35vh] lg:h-[75vh] bg-neutral-900 rounded-2xl overflow-hidden border border-neutral-800 flex flex-col justify-between relative">
+        <video id="guideVideo" class="w-full h-full object-cover absolute inset-0 z-0 opacity-70" muted loop playsinline>
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-tailor-measuring-suit-fabric-on-a-table-41444-large.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-neutral-950/40 z-10 pointer-events-none"></div>
+        <div class="z-20 p-4">
+          <span class="bg-black/80 border border-neutral-800 text-[10px] text-emerald-400 px-3 py-1.5 rounded-md font-mono tracking-wider">CHILD MEASUREMENT MATRIX TUTORIAL</span>
+        </div>
+        <div class="z-20 p-6 mt-auto">
+          <div class="bg-neutral-950/90 border border-neutral-800/80 p-4 rounded-xl backdrop-blur-md">
+            <p class="text-[11px] font-bold text-emerald-500 tracking-widest uppercase mb-1" id="videoInstructionTitle">Child Active Guide</p>
+            <p class="text-xs text-neutral-300 mb-0" id="videoInstructionDesc">Select an option on the right. Follow visual clips strictly to guarantee proper comfort adjustments for developing children.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-neutral-900/50 border border-neutral-900 rounded-2xl p-6 lg:p-8 shadow-xl">
+        <div id="wizard-form-view" class="space-y-6">
+          <div>
+            <h2 id="activeOutfitTitle" class="text-2xl font-black tracking-tight text-white">Outfit Customization</h2>
+            <p class="text-xs text-neutral-400 mt-1">Please supply current anatomical measurements below. Ensure tape sits loosely.</p>
+          </div>
+          
+          <div class="bg-neutral-900 p-4 rounded-xl border border-neutral-800 grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-[10px] font-bold text-neutral-400 mb-1">TARGET AGE CLASS</label>
+              <select id="child_age" class="w-full bg-neutral-950 border border-neutral-800 rounded-lg p-2 text-xs outline-none focus:border-emerald-500">
+                <option value="Infant (0-1)">Infant (0-1 years)</option>
+                <option value="Toddler (2-4)">Toddler (2-4 years)</option>
+                <option value="Child (5-8)">Child (5-8 years)</option>
+                <option value="Preteen (9-12)">Preteen (9-12 years)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[10px] font-bold text-neutral-400 mb-1">FIT PREFERENCE</label>
+              <select id="fit_type" class="w-full bg-neutral-950 border border-neutral-800 rounded-lg p-2 text-xs outline-none focus:border-emerald-500">
+                <option value="Standard Comfort">Standard Grow-Room Fit</option>
+                <option value="Exact Dynamic">Snug Occasion Fit</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-neutral-900 p-3 rounded-xl border border-neutral-800 focus-within:border-emerald-500 transition">
+              <label class="block text-[10px] uppercase font-bold text-neutral-400 mb-1">1. Chest Girth (Inches)</label>
+              <input type="number" id="m_chest" placeholder="0.0" onfocus="syncVideoGuide('chest')" class="w-full bg-transparent text-white outline-none text-sm font-medium">
+            </div>
+            <div class="bg-neutral-900 p-3 rounded-xl border border-neutral-800 focus-within:border-emerald-500 transition">
+              <label class="block text-[10px] uppercase font-bold text-neutral-400 mb-1">2. Shoulder Span (Inches)</label>
+              <input type="number" id="m_shoulder" placeholder="0.0" onfocus="syncVideoGuide('shoulder')" class="w-full bg-transparent text-white outline-none text-sm font-medium">
+            </div>
+            <div class="bg-neutral-900 p-3 rounded-xl border border-neutral-800 focus-within:border-emerald-500 transition">
+              <label class="block text-[10px] uppercase font-bold text-neutral-400 mb-1">3. Waist Line (Inches)</label>
+              <input type="number" id="m_waist" placeholder="0.0" onfocus="syncVideoGuide('waist')" class="w-full bg-transparent text-white outline-none text-sm font-medium">
+            </div>
+            <div class="bg-neutral-900 p-3 rounded-xl border border-neutral-800 focus-within:border-emerald-500 transition">
+              <label class="block text-[10px] uppercase font-bold text-neutral-400 mb-1">4. Total Height Drop (Inches)</label>
+              <input type="number" id="m_height" placeholder="0.0" onfocus="syncVideoGuide('height')" class="w-full bg-transparent text-white outline-none text-sm font-medium">
+            </div>
+          </div>
+          
+          <div id="formValidationError" class="hidden text-xs text-rose-500 bg-rose-950/20 border border-rose-900/50 p-3 rounded-xl">
+            ⚠️ Missing field parameters. Verify all metrics before staging into the shopping cart.
+          </div>
+
+          <button onclick="processAddtoCart()" class="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-bold uppercase text-xs tracking-wider py-4 rounded-xl transition shadow-lg">
+            Lock Profile & Add To Cart 
+          </button>
+        </div>
+
+        <div id="wizard-checkout-view" class="hidden space-y-6">
+          <div>
+            <h2 class="text-2xl font-black tracking-tight text-white">Secure Order Verification</h2>
+            <p class="text-xs text-neutral-400 mt-1">Review finalized aggregated breakdown pricing adjustments.</p>
+          </div>
+
+          <div id="cartItemsContainer" class="space-y-3 max-h-60 overflow-y-auto pr-2">
+            </div>
+
+          <div class="bg-amber-500/10 border border-amber-500/20 p-3.5 rounded-xl space-y-1">
+            <div class="text-amber-400 font-bold text-xs flex items-center gap-1.5">⚠️ LIVE PRICING NOTICE</div>
+            <p class="text-[11px] text-neutral-400 leading-normal">Items saved inside the cart are subject to raw material and scheduling cost variance increments (+5% over delay limits) depending on final payment execution latency.</p>
+          </div>
+
+          <div class="bg-neutral-950 border border-neutral-800 p-4 rounded-xl flex justify-between items-center font-mono">
+            <span class="text-xs uppercase font-bold text-neutral-400">Total Payable Value:</span>
+            <span id="lbl_total_price" class="text-xl text-emerald-400 font-bold">₦0</span>
+          </div>
+
+          <div class="space-y-3">
+            <input type="email" id="chk_email" value="customer@507brand.com" class="w-full bg-neutral-900 border border-neutral-800 focus:border-emerald-500 rounded-xl px-4 py-3 text-sm text-white outline-none">
+            <button onclick="executePaymentGatewaySim()" id="btnPayment" class="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-bold uppercase text-xs tracking-wider py-4 rounded-xl transition">
+              Authorize Instant Payment Settlement
+            </button>
+          </div>
+        </div>
+
+        <div id="wizard-tracking-view" class="hidden space-y-6">
+          <div class="bg-emerald-950/20 border border-emerald-900/40 p-4 rounded-xl text-center">
+            <p class="text-emerald-400 font-bold text-sm">Vault Settlement Authorized Successfully</p>
+            <p class="text-[11px] text-neutral-400 mt-1">Production slot successfully booked. Track processing states real-time below.</p>
+          </div>
+
+          <div class="bg-neutral-950 border border-neutral-800 p-5 rounded-xl space-y-4">
+            <div class="flex justify-between items-center text-xs">
+              <div>
+                <span class="block text-[10px] text-neutral-500 font-mono">TRACKING SIGNATURE ID</span>
+                <span id="lbl_track_id" class="font-mono font-bold text-white text-sm">#507-W82K91</span>
+              </div>
+              <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-full font-bold text-[10px]">IN STUDIO CREATION</span>
+            </div>
+            
+            <div class="relative flex items-center justify-between pt-2">
+              <div class="absolute left-0 right-0 h-0.5 bg-neutral-800 top-1/2 -translate-y-1/2"></div>
+              <div class="absolute left-0 h-0.5 bg-emerald-500 top-1/2 -translate-y-1/2" style="width:25%"></div>
+              <div class="z-10 bg-emerald-500 text-black w-6 h-6 rounded-full flex items-center justify-center font-bold text-[10px]">✓</div>
+              <div class="z-10 bg-neutral-950 border-2 border-emerald-500 text-emerald-500 w-6 h-6 rounded-full flex items-center justify-center font-bold text-[10px] animate-pulse">2</div>
+              <div class="z-10 bg-neutral-950 border-2 border-neutral-800 text-neutral-600 w-6 h-6 rounded-full flex items-center justify-center font-bold text-[10px]">3</div>
+              <div class="z-10 bg-neutral-950 border-2 border-neutral-800 text-neutral-600 w-6 h-6 rounded-full flex items-center justify-center font-bold text-[10px]">4</div>
+            </div>
+            <div class="flex justify-between text-[9px] text-neutral-400 font-mono text-center uppercase">
+              <span class="text-emerald-400 font-bold">Settled</span>
+              <span class="text-white font-bold">Pattern Cut</span>
+              <span>Sewing</span>
+              <span>Dispatched</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="about-section" class="bg-neutral-900/20 border-t border-b border-neutral-900 py-20 px-6">
+    <div class="max-w-4xl mx-auto text-center space-y-6">
+      <h2 class="text-xs uppercase font-bold tracking-widest text-emerald-400">OUR CONVICTION</h2>
+      <p class="text-2xl md:text-3xl font-light leading-relaxed italic text-neutral-200">
+        "We believe that a child's wardrobe shouldn't compromise on fine structural integrity. 507 Brand marries playful agility with meticulous bespoke high tailoring."
+      </p>
+      <div class="text-xs font-mono tracking-widest uppercase text-neutral-500">— 507 STUDIO ATELIER</div>
+    </div>
+  </section>
+
+  <footer id="contact-section" class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-xs border-t border-neutral-900 mt-12 text-neutral-400">
+    <div class="space-y-3">
+      <h4 class="font-bold tracking-widest uppercase text-white">507 BRAND HEADQUARTERS</h4>
+      <p class="leading-relaxed font-mono">Plot 12, Fashion Design District Complex,<br>Victoria Island, Lagos, Nigeria.</p>
+    </div>
+    <div class="space-y-3">
+      <h4 class="font-bold tracking-widest uppercase text-white">DIGITAL CONCIERGE</h4>
+      <p class="font-mono">Atelier Inquiries: concierge@507brand.com<br>WhatsApp Assistance: +234 (0) 805 507 0000</p>
+    </div>
+    <div class="space-y-2">
+      <h4 class="font-bold tracking-widest uppercase text-white">MANIFESTO</h4>
+      <p class="leading-relaxed">Dedicated entirely to transforming miniature scaling into high-end fashion canvas profiles. Little Hearts, Big Styles.</p>
+    </div>
+  </footer>
+
+  <script src="fashion.js"></script>
+</body>
+</html>

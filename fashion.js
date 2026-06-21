@@ -96,8 +96,7 @@ function renderCheckoutStageView() {
   let aggregateCartSum = 0;
 
   shoppingCartItems.forEach((item, index) => {
-    // CRITICAL REQUIREMENT LOGIC: Check time elapsed since product was configured.
-    // If elapsed time passes a specific timeframe threshold (simulated here at 10 seconds for real-time testing), increase base price by 15%.
+    // Check time elapsed since product configuration to scale dynamic price values
     const secondsElapsed = Math.floor((Date.now() - item.timestampAdded) / 1000);
     let finalAdjustedItemPrice = item.basePrice;
     let priceHikeAppliedIndicator = "";
@@ -147,43 +146,56 @@ function executePaymentGatewaySim() {
   }, 2000);
 }
 
-// Global Cart Nav Trigger Override Entry mapping hooks logic shortcuts
-document.getElementById('cartBtn').addEventListener('click', () => {
-  if (shoppingCartItems.length === 0) {
-    alert("Your 507 Brand custom styling cart is empty. Choose an item below to measure first.");
-    return;
+// DOM Event Bindings and Interactive Action Triggers
+document.addEventListener('DOMContentLoaded', () => {
+  
+  // Global Cart Nav Trigger Override Entry mapping hooks logic shortcuts
+  const cartBtn = document.getElementById('cartBtn');
+  if (cartBtn) {
+    cartBtn.addEventListener('click', () => {
+      if (shoppingCartItems.length === 0) {
+        alert("Your 507 Brand custom styling cart is empty. Choose an item below to measure first.");
+        return;
+      }
+      document.getElementById('studioModal').classList.remove('hidden');
+      renderCheckoutStageView();
+    });
   }
-  document.getElementById('studioModal').classList.remove('hidden');
-  renderCheckoutStageView();
-});
-// ... (all your other existing event listeners are up here) ...
 
-  // 3. Bind input field action listener triggers
-  document.getElementById('m_neck').addEventListener('focus', () => syncVideoGuide('neck'));
-  document.getElementById('m_shoulder').addEventListener('focus', () => syncVideoGuide('shoulder'));
-  document.getElementById('m_chest').addEventListener('focus', () => syncVideoGuide('chest'));
-  document.getElementById('m_length').addEventListener('focus', () => syncVideoGuide('length'));
+  // Bind step-by-step studio measurement focus events
+  const inputChest = document.getElementById('m_chest');
+  const inputShoulder = document.getElementById('m_shoulder');
+  const inputWaist = document.getElementById('m_waist');
+  const inputHeight = document.getElementById('m_height');
+
+  if (inputChest) inputChest.addEventListener('focus', () => syncVideoGuide('chest'));
+  if (inputShoulder) inputShoulder.addEventListener('focus', () => syncVideoGuide('shoulder'));
+  if (inputWaist) inputWaist.addEventListener('focus', () => syncVideoGuide('waist'));
+  if (inputHeight) inputHeight.addEventListener('focus', () => syncVideoGuide('height'));
 
 
-  // ==========================================
-  // PASTE THE NEW HAMBURGER MENU CODE HERE:
-  // ==========================================
+  // =================================================================
+  // RESPONSIVE HAMBURGER NAVIGATION SCRIPT TOGGLE CONTROLLER
+  // =================================================================
   const menuToggleBtn = document.getElementById('menuToggleBtn');
   const navLinksMenu = document.getElementById('navLinksMenu');
 
-  menuToggleBtn.addEventListener('click', () => {
-    navLinksMenu.classList.toggle('hidden');
-  });
-
-  const interiorLinks = navLinksMenu.querySelectorAll('a');
-  interiorLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      if (window.innerWidth < 768) {
-        navLinksMenu.classList.add('hidden');
-      }
+  if (menuToggleBtn && navLinksMenu) {
+    // Open and close menu on clicking the toggle button
+    menuToggleBtn.addEventListener('click', () => {
+      navLinksMenu.classList.toggle('hidden');
     });
-  });
-  // ==========================================
 
+    // Auto-close dropdown panel layout instantly when click links are routed
+    const interiorLinks = navLinksMenu.querySelectorAll('a');
+    interiorLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 768) {
+          navLinksMenu.classList.add('hidden');
+        }
+      });
+    });
+  }
+  // =================================================================
 
-}); // <--- This is the absolute last line of your file. Leave this here!
+});

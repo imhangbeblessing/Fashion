@@ -156,3 +156,34 @@ document.getElementById('cartBtn').addEventListener('click', () => {
   document.getElementById('studioModal').classList.remove('hidden');
   renderCheckoutStageView();
 });
+// ... (all your other existing event listeners are up here) ...
+
+  // 3. Bind input field action listener triggers
+  document.getElementById('m_neck').addEventListener('focus', () => syncVideoGuide('neck'));
+  document.getElementById('m_shoulder').addEventListener('focus', () => syncVideoGuide('shoulder'));
+  document.getElementById('m_chest').addEventListener('focus', () => syncVideoGuide('chest'));
+  document.getElementById('m_length').addEventListener('focus', () => syncVideoGuide('length'));
+
+
+  // ==========================================
+  // PASTE THE NEW HAMBURGER MENU CODE HERE:
+  // ==========================================
+  const menuToggleBtn = document.getElementById('menuToggleBtn');
+  const navLinksMenu = document.getElementById('navLinksMenu');
+
+  menuToggleBtn.addEventListener('click', () => {
+    navLinksMenu.classList.toggle('hidden');
+  });
+
+  const interiorLinks = navLinksMenu.querySelectorAll('a');
+  interiorLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth < 768) {
+        navLinksMenu.classList.add('hidden');
+      }
+    });
+  });
+  // ==========================================
+
+
+}); // <--- This is the absolute last line of your file. Leave this here!

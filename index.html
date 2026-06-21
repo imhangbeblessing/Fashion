@@ -9,21 +9,33 @@
 </head>
 <body class="bg-neutral-950 text-white font-sans antialiased">
 
-  <nav class="border-b border-neutral-900 bg-neutral-950/90 backdrop-blur-md sticky top-0 z-50 px-6 py-4 flex justify-between items-center">
+  <nav class="border-b border-neutral-900 bg-neutral-950/90 backdrop-blur-md sticky top-0 z-50 px-6 py-4 flex justify-between items-center flex-wrap">
+  <div class="flex items-center space-x-3">
     <div class="flex flex-col">
       <span class="text-2xl font-black tracking-widest text-white">507 BRAND</span>
       <span class="text-[10px] text-emerald-400 font-mono tracking-wider">LITTLE HEARTS, BIG STYLES</span>
     </div>
-    <div class="hidden md:flex space-x-8 text-xs uppercase tracking-widest font-semibold">
-      <a href="#hero-section" class="hover:text-emerald-400 transition">Home</a>
-      <a href="#collection-section" class="hover:text-emerald-400 transition">Shop Outfits</a>
-      <a href="#about-section" class="hover:text-emerald-400 transition">Our Story</a>
-      <a href="#contact-section" class="hover:text-emerald-400 transition">Contact</a>
-    </div>
+  </div>
+
+  <div class="flex items-center space-x-4 ml-auto md:order-last">
     <button id="cartBtn" class="relative bg-neutral-900 border border-neutral-800 p-2.5 rounded-xl hover:border-emerald-500 transition">
       🛒 <span id="cartCount" class="ml-1 text-xs text-emerald-400 font-bold">0</span>
     </button>
-  </nav>
+    
+    <button id="menuToggleBtn" class="md:hidden text-white bg-neutral-900 border border-neutral-800 p-2.5 rounded-xl focus:outline-none">
+      <svg id="menuIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div id="navLinksMenu" class="hidden w-full md:flex md:w-auto md:space-x-8 text-xs uppercase tracking-widest font-semibold mt-4 md:mt-0">
+    <a href="#hero-section" class="block py-2.5 border-b border-neutral-900 md:border-none hover:text-emerald-400 transition">Home</a>
+    <a href="#collection-section" class="block py-2.5 border-b border-neutral-900 md:border-none hover:text-emerald-400 transition">Shop Outfits</a>
+    <a href="#about-section" class="block py-2.5 border-b border-neutral-900 md:border-none hover:text-emerald-400 transition">Our Story</a>
+    <a href="#contact-section" class="block py-2.5 md:py-0 hover:text-emerald-400 transition">Contact</a>
+  </div>
+</nav>
 
   <section id="hero-section" class="relative h-[85vh] flex items-center justify-center overflow-hidden border-b border-neutral-900">
     <div class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-luminosity" style="background-image: url('https://images.unsplash.com/photo-1519457431-44ccd64a579b?auto=format&fit=crop&w=1600&q=80');"></div>

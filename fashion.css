@@ -7,6 +7,21 @@ html {
   width: 5px;
 }
 
+/* 1. Force all product images to stretch and fill their designated boxes */
+#collection-section img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* 2. Fix the container box layout so your local images align identically */
+#collection-section .h-80 {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: #0a0a0a !important; /* Matches your dark theme background */
+}
 ::-webkit-scrollbar-track {
   background: #0a0a0a;
 }
